@@ -1,9 +1,8 @@
 package com.example.userdemo.service;
 
-import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.userdemo.entity.User;
 
-public interface UserService extends IService<User> {
+public interface UserService {
 
     User getUserByUsername(String username);
 
