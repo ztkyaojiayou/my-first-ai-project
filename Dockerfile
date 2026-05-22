@@ -13,7 +13,7 @@ COPY src ./src
 RUN mvn package -DskipTests -B
 
 # 运行阶段：使用精简 JRE 镜像
-FROM eclipse-temurin:8-jre-alpine
+FROM openjdk:8-jre-alpine
 
 # 创建非 root 用户
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
