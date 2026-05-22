@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -31,7 +32,7 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
 
     @Override
     public List<Permission> getPermissionsByUserId(Long userId) {
-        return List.of();
+        return Collections.emptyList();
     }
 
     @Override
@@ -45,7 +46,7 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
                 .collect(java.util.stream.Collectors.toList());
 
         if (permissionIds.isEmpty()) {
-            return List.of();
+            return Collections.emptyList();
         }
 
         return permissionMapper.selectBatchIds(permissionIds);

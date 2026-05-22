@@ -16,6 +16,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -53,7 +54,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 List<String> permissions = (List<String>) redisUtil.get("permission:" + username);
 
                 if (permissions == null) {
-                    permissions = List.of("ROLE_USER");
+                    permissions = Arrays.asList("ROLE_USER");
                 }
 
                 List<SimpleGrantedAuthority> authorities = permissions.stream()
